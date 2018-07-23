@@ -74,7 +74,7 @@ console.log("Is Mark\'s BMI higher than John\'s? " + isMarkBmiHigherThanJohn)
 
 
 //if / else statements
-
+/*
 var firstName = 'John';
 var civilStatus = 'single';
 
@@ -116,3 +116,31 @@ if (averageTeam1 > averageTeam2 && averageTeam1 > averageTeam3) {
 } else {
   console.log('There is a draw! Scores: ' + averageTeam1 + ':' + averageTeam2);
 }
+*/
+
+
+// function
+
+function calculateAge(birthYear) {
+  return 2018 - birthYear;
+}
+
+console.log(calculateAge(1990));
+
+//function declaration
+function whatDoYouDo(job, firstName) {}
+
+
+//function expression
+var whatDoYouDo = function(job, firstName) {
+  switch(job) {
+    case 'teacher':
+      return firstName + ' is a teacher.';
+    case 'driver':
+      return firstName + ' is a driver';
+    default:
+      return firstName + ' does something else.';
+    }
+}
+
+console.log(whatDoYouDo('teacher', 'John'));
