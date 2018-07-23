@@ -54,7 +54,7 @@ switch(job) {
 //coding challenge 1
 //count BMI
 
-
+/*
 var massJohn = 70;
 var massMark = 100;
 
@@ -69,3 +69,50 @@ console.log("Mark BMI " + bmiMark);
 
 var isMarkBMIHigherThanJohn = bmiMark > bmiJohn;
 console.log("Is Mark\'s BMI higher than John\'s? " + isMarkBmiHigherThanJohn)
+*/
+
+
+
+//if / else statements
+
+var firstName = 'John';
+var civilStatus = 'single';
+
+if (civilStatus === 'married')
+    console.log(firstName + ' is married');
+else
+    console.log(firstName + ' will hopefully marry soon :)');
+
+
+var age = 16;
+
+if (age < 13)
+    console.log(firstName + ' is a boy.');
+else if(age >= 13 && age < 20)
+  console.log(firstName + " is a young man.");
+else
+  console.log(firstName + ' is a man.');
+
+
+
+// coding challenge 2
+
+var averageTeam1 = (150 + 94 + 123) / 3; //110
+var averageTeam2 = (97 + 134 + 105) / 3; //111
+var averageTeam3 = (97 + 134 + 105) / 3; //112
+
+console.log(averageTeam1, averageTeam2);
+
+if (averageTeam1 > averageTeam2 && averageTeam1 > averageTeam3) {
+  console.log('John\`s team wins! Average score is: ' + averageTeam1);
+} else if (averageTeam1 < averageTeam2 && averageTeam3 < averageTeam2) {
+  console.log('Mike\`s team wins! Average score is: ' + averageTeam2);
+} else if (averageTeam1 < averageTeam3 && averageTeam2 < averageTeam3) {
+  console.log('Mary\`s team wins! Average score is: ' + averageTeam3);
+} else if (averageTeam1 === averageTeam3) {
+  console.log('There is a draw between team 1 and team 3' + averageTeam1 + ':' + averageTeam3);
+} else if (averageTeam2 === averageTeam3) {
+  console.log('There is a draw between team 2 and team 3' + averageTeam2 + ':' + averageTeam3);
+} else {
+  console.log('There is a draw! Scores: ' + averageTeam1 + ':' + averageTeam2);
+}
