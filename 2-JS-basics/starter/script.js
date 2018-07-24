@@ -174,6 +174,7 @@ console.log(isMati);
 
 
 //coding challenge 3
+/*
 var bills = [124, 48, 268];
 var summOfPayment = [];
 
@@ -199,3 +200,43 @@ for(var i=0; i<bills.length; i++) {
 }
 
 console.log(summOfPayment);
+*/
+
+//Objects and properties
+//new object syntax
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.lastName = 'Smith';
+jane['isMarried'] = true;
+
+console.log(jane);
+
+var john = {
+  firstName: 'John',
+  lastName: 'Smith',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false,
+  calcAge: function() {
+    var year = new Date().getFullYear();
+    this.age = year - this.birthYear;
+  }
+}
+
+//console.log(john.calcAge(1990));
+john.calcAge();
+console.log(john);
+
+
+var x = 'birthYear';
+console.log(john.firstName);
+console.log(john['lastName']);
+console.log(john[x]);
+
+john.job = 'designer';
+john['isMarried'] = true;
+
+
+
+
