@@ -239,6 +239,8 @@ john.job = 'designer';
 john['isMarried'] = true;
 */
 
+//coding challenge 4
+/*
 var countBMI = {
   BMI: function() {
     return this.BMI = this.mass / (this.height * this.height);
@@ -272,9 +274,79 @@ var higherBMI = function(firstPerson, secondPerson) {
     console.log('Both have the same BMI: ' + firstPerson.BMI + ' and ' + secondPerson.BMI);
   }
 }
-
 higherBMI(Mark, John);
 
+*/
+// coding challange 5
+//John
+var johnTipCalc = {
+  billsValues: [124, 48, 268, 180, 42],
+  tip: [],
+  summOfPayment: [],
+  percent: function() {
+    for (var i=0; i < this.billsValues.length; i++) {
+      if (this.billsValues[i] < 50) {
+        this.tip[i] = this.billsValues[i] * 0.2; 
+      }  else if (this.billsValues[i] <= 50 && this.billsValues[i] <= 200) {
+        this.tip[i] = this.billsValues[i] * 0.15;
+      } else {
+        this.tip[i] = this.billsValues[i] * 0.1;
+      }
+    }
+    return this.tip;
+  },
+  calcSumm: function() {
+    for (var j=0; j < this.tip.length; j++)
+    this.summOfPayment[j] = (this.tip[j] + this.billsValues[j]);
+    console.log("Summ of payment: " + this.summOfPayment);
+  }
+}
+
+console.log(johnTipCalc.percent());
+johnTipCalc.calcSumm();
+ 
+
+ //Mark
+
+var markTipCalc = {
+  billsValues: [77, 375, 110, 45],
+  tip: [],
+  summOfPayment: [],
+  percent: function() {
+    for (var i=0; i < this.billsValues.length; i++) {
+      if (this.billsValues[i] < 100) {
+        this.tip[i] = this.billsValues[i] * 0.2; 
+      }  else if (this.billsValues[i] <= 100 && this.billsValues[i] <= 300) {
+        this.tip[i] = this.billsValues[i] * 0.1;
+      } else {
+        this.tip[i] = this.billsValues[i] * 0.25;
+      }
+    }
+    return this.tip;
+  }
+}
+markTipCalc.percent();
+johnTipCalc.calcSumm.call(markTipCalc);
+console.log(markTipCalc.tip);
 
 
+//average payment for each of them
+
+var average = function(person) {
+  for( var i=0; i< person.tip.length; i++) {
+    var summary = 0;
+    summary += person.tip[i];
+    var averageSummary = (summary / person.tip.length);
+  }
+  return averageSummary;
+}
+
+console.log("Average tip payment for John: " + average(johnTipCalc) + " and average tip payment for Mark: " + average(markTipCalc));
+if (average(johnTipCalc) < average(markTipCalc)) {
+  console.log('Mark\`s family paid average more tips than John\`s family.')  
+} else if (average(johnTipCalc) > average(markTipCalc)) {
+  console.log('John\`s family paid average more tips than Mark\`s family.')
+} else {
+  console.log("Both families paid same average amount of tips." + average(johnTipCalc) + ":" + average(markTipCalc));
+}
 
