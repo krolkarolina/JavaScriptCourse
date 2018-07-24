@@ -277,7 +277,7 @@ var higherBMI = function(firstPerson, secondPerson) {
 higherBMI(Mark, John);
 
 */
-// coding challange 5
+// coding challenge 5
 //John
 var johnTipCalc = {
   billsValues: [124, 48, 268, 180, 42],
