@@ -147,7 +147,7 @@ console.log(whatDoYouDo('teacher', 'John'));
 */
 
 //arrays
-
+/*
 var names = ['John', 'Karo', 'Mati'];
 var years = new Array(1990,1991,1992);
 
@@ -170,4 +170,32 @@ console.log(names);
 
 var isMati = names.indexOf('Karo') === -1 ? 'It\`s not a Mati' : 'It is a Mati!';
 console.log(isMati);
+*/
 
+
+//coding challenge 3
+var bills = [124, 48, 268];
+var summOfPayment = [];
+
+var tipCalculator = function(amount) {
+  if ( amount < 50) {
+    var tip = amount * 0.2;
+  } else if (50 <= amount && amount <= 200 ) {
+    tip = amount * 0.15;
+  } else {
+    tip = amount * 0.1;
+  }
+
+  return tip;
+}
+
+var summ = function(tip, bill) {
+  var summary = tip + bill;
+  return summary;
+}
+
+for(var i=0; i<bills.length; i++) {
+  summOfPayment[i] = summ(tipCalculator(bills[i]), bills[i]);
+}
+
+console.log(summOfPayment);
