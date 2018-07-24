@@ -204,6 +204,7 @@ console.log(summOfPayment);
 
 //Objects and properties
 //new object syntax
+/*
 var jane = new Object();
 jane.firstName = 'Jane';
 jane.lastName = 'Smith';
@@ -236,6 +237,43 @@ console.log(john[x]);
 
 john.job = 'designer';
 john['isMarried'] = true;
+*/
+
+var countBMI = {
+  BMI: function() {
+    return this.BMI = this.mass / (this.height * this.height);
+  }
+}
+
+var Mark = {
+  firstName: 'Mark',
+  lastName: 'Smith',
+  mass: 78,
+  height: 1.69
+}
+
+countBMI.BMI.call(Mark);
+
+var John = {
+  firstName: 'John',
+  lastName: 'Smith',
+  mass: 78,
+  height: 1.69
+}
+
+countBMI.BMI.call(John);
+
+var higherBMI = function(firstPerson, secondPerson) {
+  if (firstPerson.BMI < secondPerson.BMI) {
+    console.log(firstPerson.firstName + ' has lower BMI(' + firstPerson.BMI + ') than ' + secondPerson.firstName + '(' + secondPerson.BMI + ').');
+  } else if (firstPerson.BMI > secondPerson.BMI){
+    console.log(firstPerson.firstName + ' has higher BMI(' + firstPerson.BMI + ') than ' + secondPerson.firstName + '(' + secondPerson.BMI + ').');
+  } else {
+    console.log('Both have the same BMI: ' + firstPerson.BMI + ' and ' + secondPerson.BMI);
+  }
+}
+
+higherBMI(Mark, John);
 
 
 
