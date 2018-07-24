@@ -120,7 +120,7 @@ if (averageTeam1 > averageTeam2 && averageTeam1 > averageTeam3) {
 
 
 // function
-
+/*
 function calculateAge(birthYear) {
   return 2018 - birthYear;
 }
@@ -144,3 +144,30 @@ var whatDoYouDo = function(job, firstName) {
 }
 
 console.log(whatDoYouDo('teacher', 'John'));
+*/
+
+//arrays
+
+var names = ['John', 'Karo', 'Mati'];
+var years = new Array(1990,1991,1992);
+
+console.log(names);
+console.log(names.length);
+
+names[1] = 'Ben';
+console.log(names);
+
+names.push('Kara'); //push to last place in array
+names.unshift('Ola'); //push to first place in array
+console.log(names);
+
+names.pop(); //removes one element from the end of array
+names.shift(); //removes first element from array
+console.log(names);
+
+console.log(names.indexOf('John'));
+console.log(names);
+
+var isMati = names.indexOf('Karo') === -1 ? 'It\`s not a Mati' : 'It is a Mati!';
+console.log(isMati);
+
