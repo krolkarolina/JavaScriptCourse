@@ -276,18 +276,19 @@ var higherBMI = function(firstPerson, secondPerson) {
 }
 higherBMI(Mark, John);
 
-*/
+
 // coding challenge 5
 //John
 var johnTipCalc = {
   billsValues: [124, 48, 268, 180, 42],
   tip: [],
   summOfPayment: [],
+
   percent: function() {
     for (var i=0; i < this.billsValues.length; i++) {
       if (this.billsValues[i] < 50) {
         this.tip[i] = this.billsValues[i] * 0.2; 
-      }  else if (this.billsValues[i] <= 50 && this.billsValues[i] <= 200) {
+      }  else if (this.billsValues[i] >= 50 && this.billsValues[i] <= 200) {
         this.tip[i] = this.billsValues[i] * 0.15;
       } else {
         this.tip[i] = this.billsValues[i] * 0.1;
@@ -295,6 +296,7 @@ var johnTipCalc = {
     }
     return this.tip;
   },
+
   calcSumm: function() {
     for (var j=0; j < this.tip.length; j++)
     this.summOfPayment[j] = (this.tip[j] + this.billsValues[j]);
@@ -349,4 +351,48 @@ if (average(johnTipCalc) < average(markTipCalc)) {
 } else {
   console.log("Both families paid same average amount of tips." + average(johnTipCalc) + ":" + average(markTipCalc));
 }
+*/
 
+
+
+var johnAttributes = {
+  billsValues: [124, 48, 268, 180, 42],
+  tipRules: [
+    { from: 0, to: 50, tip_percent: 0.2 },
+    { from: 50, to: 200, tip_percent: 0.15 },
+    { from: 200, to: 100000000000000, tip_percent: 0.2 }
+  ],
+  calculatedTips: [],
+  summOfPayment: []
+}
+
+var ciapekAttributes = {
+  billsValues: [10, 100, 1000, 10000],
+  tipRules: [
+    { from: 0, to: 10, tip_percent: 0.8 },
+    { from: 10, to: 9900, tip_percent: 0.02 },
+    { from: 9900, to: 100000000000000, tip_percent: 0.3 }
+  ],
+  calculatedTips: [],
+  summOfPayment: []
+}
+
+var handleTips = {
+  calculateTips: function() {
+    for (var i=0; i < this.billsValues.length; i++) {
+      for (var j=0; j < this.tipRules.length; j++) {
+        if (this.billsValues[i] > this.tipRules[j].from && this.billsValues[i] <= this.tipRules[j].to) {
+          this.calculatedTips[i] = this.billsValues[i] * this.tipRules[j].tip_percent;
+          break;
+        }
+      }
+    }
+    console.log(this);
+  }
+}
+
+//handleTips.calculateTips.call(johnAttributes);
+//handleTips.calculateTips.call(ciapekAttributes);
+
+ciapekAttributes.calculateTips = handleTips.calculateTips;
+ciapekAttributes.calculateTips();
