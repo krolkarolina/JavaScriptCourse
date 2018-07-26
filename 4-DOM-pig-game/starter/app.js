@@ -8,3 +8,61 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
+
+var scores, roundScore, activePlayer;
+
+scores = [0,0]; //scores[0] for 1.player, scores[1] for second player
+roundScore = 0;
+activePlayer = 0; // 0-first player, 1-second player
+
+
+//document.querySelector('#current-' + activePlayer).innerHTML = 'em' + dice + '/em';
+//em - italic text
+
+document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+  //1. random number
+  // *6 - rolls from 0 to 6, and +1 to roll from 1 to 6
+  var dice = Math.floor(Math.random() * 6) + 1 //Math.floor makes an integer
+
+  //2. display the result
+  var diceDOM = document.querySelector('.dice');
+  diceDOM.style.display = 'block';
+  diceDOM.src = 'dice-' + dice + '.png';
+
+  //3. Update the round score IF the rolled number was NOT a 1
+  if (dice !== 1) {
+    roundScore += dice;
+    document.getElementById('current-' + activePlayer).textContent = roundScore;
+  } else {
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //ternary operator
+    roundScore = 0;
+
+    document.getElementById('current-0').textContent = roundScore;
+    document.getElementById('current-1').textContent = roundScore;
+
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    document.querySelector('.dice').style.display = 'none';
+
+    //document.querySelector('player-0-panel').classList.remove('active');
+    //document.querySelector('player-1-panel').classList.add('active');
+  };
+});
+
+document.querySelector('.btn-new').addEventListener('click', function() {
+  document.querySelector('.dice').style.display = 'none';
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+  document.querySelector('.player-0-panel').classList.add('active');
+  document.querySelector('.player-1-panel').classList.remove('active');
+});
